@@ -1,0 +1,47 @@
+{
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-recommended-less",
+    "stylelint-config-standard-vue",
+    "stylelint-config-recess-order"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.less",
+        "*.css",
+        "*.vue",
+        "**/*.vue"
+      ]
+    }
+  ],
+  "rules": {
+    "block-no-empty": true,
+    "unit-allowed-list": [
+      "%",
+      "deg",
+      "px",
+      "rem",
+      "ms",
+      "s",
+      "vh"
+    ],
+    "selector-class-pattern": null,
+    "order/properties-alphabetical-order": true,
+    "declaration-block-no-duplicate-properties": true,
+    "order/order": [
+      "custom-properties",
+      "declarations"
+    ],
+    "order/properties-order": [
+      "display",
+      "width",
+      "height",
+      "position",
+      "top",
+      "left",
+      "right",
+      "bottom"
+    ]
+  }
+}
