@@ -3,13 +3,13 @@
     <a-layout-sider v-model:collapsed="collapsed" :trigger="null" collapsible>
       <div class="logo" />
       <a-menu v-model:selectedKeys="selectedKeys" theme="dark" mode="inline">
-        <a-menu-item key="1">
+        <a-menu-item key="1" @click="handleClickRouter('/dashboard')">
           <user-outlined />
           <span>dashboard</span>
         </a-menu-item>
-        <a-menu-item key="2">
+        <a-menu-item key="2" @click="handleClickRouter('/waterMackManager')">
           <video-camera-outlined />
-          <span>相册管理</span>
+          <span>水印管理</span>
         </a-menu-item>
         <a-menu-item key="3">
           <upload-outlined />
@@ -23,7 +23,9 @@
       </a-layout-header>
       <a-layout-content class="layout-content">
         <RouterView v-slot="{Component}">
-          <component :is="Component" />
+          <KeepAlive>
+            <component :is="Component" />
+          </KeepAlive>
         </RouterView>
       </a-layout-content>
     </a-layout>
@@ -36,11 +38,16 @@ UserOutlined,
 VideoCameraOutlined
 } from '@ant-design/icons-vue';
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 import Header from './components/header.vue';
+const Vr = useRouter()
 const selectedKeys = ref<string[]>(['1']);
 const collapsed = ref<boolean>(false);
 const handleChangeCollapsed = ()=> {
 	collapsed.value = !collapsed.value
+}
+const handleClickRouter = (url : string)=> {
+	Vr.push(url)
 }
 </script>
 <style scoped lang="less">
@@ -50,7 +57,8 @@ const handleChangeCollapsed = ()=> {
       background: @white;
       margin: 24px 16px;
       min-height: 280px;
-      padding: 24px
+      padding: 24px;
+      // overflow: scroll;
     }
   }
 }

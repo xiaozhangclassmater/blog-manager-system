@@ -14,13 +14,16 @@ const routerMiddleWare = (to : RouteLocationNormalized, _from : RouteLocationNor
 		next()
 	}
 }
+const setDocumentTitle = (title : string)=> {
+	document.title = title
+}
+
 router.beforeEach((to, from, next)=> {
 	NProgress.start()
-	// open(true)
+	setDocumentTitle(to.meta.title as string)
 	routerMiddleWare(to, from, next)
 })
 
 router.afterEach( ()=> {
-	// close(false)
 	NProgress.done()
 })

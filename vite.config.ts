@@ -6,6 +6,7 @@ import { defineConfig } from 'vite';
 import eslintPlugin from 'vite-plugin-eslint';
 import stylelint from 'vite-plugin-stylelint';
 export default defineConfig({
+  envDir :  path.resolve(__dirname , './env'),
 	plugins: [
 		vue(),
 		eslintPlugin({

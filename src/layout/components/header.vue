@@ -24,7 +24,6 @@ import deopDown from '@/components/dropDown/index.vue';
 import { removeStorage } from '@/utils';
 import { CommentOutlined, MenuUnfoldOutlined } from '@ant-design/icons-vue';
 import { message } from 'ant-design-vue';
-import { Key } from 'ant-design-vue/es/_util/type';
 import { defineEmits, ref } from 'vue';
 import { useRouter } from 'vue-router';
 const emit = defineEmits<emitTypes>()
@@ -33,7 +32,7 @@ const operationals = ref([{
 	id: 1,
 	text: '登出'
 }])
-const handleMenuClick = (val: Key)=> {
+const handleMenuClick = (val: any)=> {
 	if (val.id === 1){
 		exitLogin()
 	}

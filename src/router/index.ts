@@ -8,9 +8,22 @@ const routes: RouteRecordRaw[] = [
 		children: [{
 			path: 'dashboard',
 			name: 'dashboard',
+			meta: {
+				title: "首页"
+			},
 			component: ()=> import('@/pages/dashboard/index.vue')
       
-		}]
+		},
+		{
+			path: 'waterMackManager',
+			name: 'waterMackManager',
+			meta: {
+				title: "水印管理"
+			},
+			component: ()=> import('@/pages/waterMack/index.vue')
+      
+		}
+		]
 	},
 	{
 		path: '/login',

@@ -22,6 +22,8 @@ declare module 'vue' {
     AMenu: typeof import('ant-design-vue/es')['Menu']
     AMenuItem: typeof import('ant-design-vue/es')['MenuItem']
     ASpin: typeof import('ant-design-vue/es')['Spin']
+    AUpload: typeof import('ant-design-vue/es')['Upload']
+    AUploadDragger: typeof import('ant-design-vue/es')['UploadDragger']
     DropDown: typeof import('./src/components/dropDown/index.vue')['default']
     Loading: typeof import('./src/components/loading/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

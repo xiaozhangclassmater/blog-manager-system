@@ -2,7 +2,7 @@ import { useLoading } from "@/hooks/module/useLoading";
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
 const { open, close} = useLoading()
 const serviceInstance = axios.create({
-	baseURL: '/api',
+	baseURL: import.meta.env.VITE_BASE_API_URL,
 	timeout: 5000,
 })
 
@@ -19,7 +19,8 @@ serviceInstance.interceptors.response.use((response: AxiosResponse)=> {
 	close()
 	return response.data
 }, (err: AxiosError)=> {
-	return Promise.reject(err)
+	close()
+	return err
 })
 
 const request = <R>(config: AxiosRequestConfig)=> {
