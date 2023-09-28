@@ -7,3 +7,13 @@ export function uploadFile(data : FormData) {
 		data,
 	})
 }
+export function downloadCraftImg(data : { fileUrls : string[]}) {
+	return request<axiosResponseType<{
+     url : string,
+     filename : string
+    }>>({
+	url: '/bff/uploadFile/waterMackImgDownload',
+	method: 'POST',
+	data
+})
+}

@@ -1,2 +1,3 @@
 export { userLogin } from './module/login';
-export { uploadFile } from './module/upload';
+export { downloadCraftImg, uploadFile } from './module/upload';
+

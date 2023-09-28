@@ -33,6 +33,7 @@
       "custom-properties",
       "declarations"
     ],
+    "no-descending-specificity": false,
     "order/properties-order": [
       "display",
       "width",

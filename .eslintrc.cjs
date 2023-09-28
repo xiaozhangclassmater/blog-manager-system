@@ -65,6 +65,7 @@ module.exports = {
         }
       ],
       "[vue/valid-v-model]" : 'off',
+      "@typescript-eslint/no-non-null-asserted-optional-chain" : 'off',
       'vue/multi-word-component-names': 'off',
       'accessor-pairs': 2, // 在对象和类中强制实施 getter 和 setter 对.
       'block-spacing': 1, // 块间距   return  { a : 'a' }  --> always   , default : return {a:'a'}
@@ -91,7 +92,8 @@ module.exports = {
         'after': true
       }],
       "indent": "off",
-      "indent-legacy": ["error", "tab"]
+      "indent-legacy": ["error", "tab"],
+      "no-empty" : 0
 
     }
 }
