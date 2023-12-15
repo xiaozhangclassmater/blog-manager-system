@@ -1,28 +1,39 @@
 import webLayout from '@/layout/index.vue'
+import { defineAsyncComponent } from 'vue'
 import { RouteRecordRaw, createRouter, createWebHashHistory } from 'vue-router'
 const routes: RouteRecordRaw[] = [
 	{
 		path: '/',
 		component: webLayout,
 		redirect: '/dashboard',
-		children: [{
-			path: 'dashboard',
-			name: 'dashboard',
-			meta: {
-				title: "首页"
-			},
-			component: ()=> import('@/pages/dashboard/index.vue')
+		children: [
+			{
+				path: 'dashboard',
+				name: 'dashboard',
+				meta: {
+					title: "首页"
+				},
+				component: defineAsyncComponent(()=> import('@/pages/dashboard/index.vue'))
       
-		},
-		{
-			path: 'waterMackManager',
-			name: 'waterMackManager',
-			meta: {
-				title: "水印管理"
 			},
-			component: ()=> import('@/pages/waterMack/index.vue')
+			{
+				path: 'waterMackManager',
+				name: 'waterMackManager',
+				meta: {
+					title: "水印管理"
+				},
+				component: defineAsyncComponent(()=> import('@/pages/waterMack/index.vue'))
       
-		}
+			},
+			{
+				path: 'ground',
+				name: 'ground',
+				meta: {
+					title: "广场"
+				},
+				component: defineAsyncComponent(()=> import('@/pages/ground/index.vue'))
+        
+			}
 		]
 	},
 	{
@@ -31,7 +42,7 @@ const routes: RouteRecordRaw[] = [
 		meta: {
 			title: '登录'
 		},
-		component: import('@/pages/login/index.vue')
+		component: defineAsyncComponent(()=> import('@/pages/login/index.vue'))
 	}
 ]
 

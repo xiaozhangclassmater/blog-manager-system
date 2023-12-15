@@ -11,7 +11,7 @@
           <video-camera-outlined />
           <span>水印管理</span>
         </a-menu-item>
-        <a-menu-item key="3">
+        <a-menu-item key="3" @click="handleClickRouter('/ground')">
           <upload-outlined />
           <span>nav 3</span>
         </a-menu-item>
@@ -23,9 +23,13 @@
       </a-layout-header>
       <a-layout-content class="layout-content">
         <RouterView v-slot="{Component}">
-          <KeepAlive>
-            <component :is="Component" />
-          </KeepAlive>
+          <Transition name="fade" mode="out-in">
+            <KeepAlive>
+              <Suspense>
+                <component :is="Component" />
+              </Suspense>
+            </KeepAlive> 
+          </Transition>
         </RouterView>
       </a-layout-content>
     </a-layout>

@@ -56,7 +56,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { downloadCraftImg, uploadFile } from '@/api/module/upload';
+import { uploadFile, createQrcode} from '@/api';
 import { InboxOutlined } from '@ant-design/icons-vue';
 import { message, type UploadProps } from 'ant-design-vue';
 import { computed, ref } from 'vue';
@@ -128,19 +128,25 @@ const handelResetUpaload = ()=> {
  */
 const createWaterMackImage = async ()=> {
 	let res = null
-	let params = {
-		fileUrls: needHandelImages.value
-	}
+	// let params = {
+	// 	fileUrls: needHandelImages.value
+	// }
 	try {
-		res = await downloadCraftImg(params)
-	} catch (error) {}
-	const { code, data } = res!
-	if (code === 0) return message.error("生成失败")
-	const aLink = document.createElement('a')
-	aLink.href = `${import.meta.env.VITE_BASE_API_URL}/${data.url}`
-	aLink.download = data.filename || 'craft'
-	aLink.click()
-	console.log('res', res);
+		res = await createQrcode()
+		console.log('res', res);
+	} catch (error) {
+    
+	}
+	// try {
+	// 	res = await downloadCraftImg(params)
+	// } catch (error) {}
+	// const { code, data } = res!
+	// if (code === 0) return message.error("生成失败")
+	// const aLink = document.createElement('a')
+	// aLink.href = `${import.meta.env.VITE_BASE_API_URL}/${data.url}`
+	// aLink.download = data.filename || 'craft'
+	// aLink.click()
+	// console.log('res', res);
 }
 const handeldragStart = (e: DragEvent)=> {
 	const dt = e.dataTransfer
@@ -160,7 +166,7 @@ const handledrop = (e: DragEvent)=> {
 	waterEl!.className = 'waterMack-wapper'
 	waterEl!.style.top = positionY.value + 'px'
 	waterEl!.style.left = positionX.value + 'px'
-	originImageRef.value?.appendChild(waterEl!)
+	originImageRef.value?.appendChild(waterEl!) 
 }
 </script>
 
